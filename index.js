@@ -116,9 +116,9 @@ app.get('/profile', verifyToken, (req, res) => {
 });
 
 // Welcome Route
-app.get('/welcome', (req, res) => {
-  res.status(200).json({ message: 'Welcome to the Node.js Authentication API' });
-});
+app.get('/', (req, res) => {
+    res.send("Welcome to my page!");
+  });
 
 // Start the server
 app.listen(port, () => {
