@@ -8,6 +8,14 @@ const secretKey = 'your-secret-key'; // Change this to a strong secret key
 require('dotenv').config();
 // Middleware to parse JSON requests
 app.use(express.json());
+//added 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
+//till here
 
 // MySQL Database Connection
 // const db = mysql.createConnection({
@@ -122,5 +130,5 @@ app.get('/', (req, res) => {
 // Start the server
 const PORT = 5000;
 app.listen(process.env.PORT || PORT, () =>
-  console.log(`Server running on port ${PORT}`)
+    console.log(`Server running on port ${PORT}`)
 );
