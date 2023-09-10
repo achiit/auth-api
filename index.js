@@ -119,7 +119,7 @@ app.post('/login', async (req, res) => {
 // Protected Route
 app.get('/profile', verifyToken, (req, res) => {
     // This route is protected; user is authenticated
-    res.status(200).json({ message: 'Authenticated user profile' });
+    res.status(200).json({ message: 'Authenticated user profile', username: req.user.username });
 });
 
 // Welcome Route
